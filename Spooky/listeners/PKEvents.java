@@ -87,13 +87,13 @@ public class PKEvents implements Listener {
                 Bukkit.getPluginManager().registerEvents(new AbilityListener(), (Plugin)Spooky.plugin);
                 Bukkit.getPluginManager().registerEvents(new PKEvents(), (Plugin)Spooky.plugin);
 
-                plugin.getLogger().info(ChatColor.BLUE + "Reloaded Void v" + Spooky.plugin.getDescription().getVersion() + "!");
-                sender.sendMessage(ChatColor.BLACK +  "Void config reloaded." + ChatColor.BOLD);
+                plugin.getLogger().info(ChatColor.BLUE + "Reloaded Spooky v" + Spooky.plugin.getDescription().getVersion() + "!");
+                sender.sendMessage(ChatColor.BLACK +  "Spooky config reloaded." + ChatColor.BOLD);
 
 
             } catch (IOException|org.bukkit.configuration.InvalidConfigurationException e) {
                 e.printStackTrace();
-                sender.sendMessage(ChatColor.BLACK +  "Void failed config reloaded." + ChatColor.BOLD);
+                sender.sendMessage(ChatColor.BLACK +  "Spooky failed config reloaded." + ChatColor.BOLD);
                 plugin.getLogger().info((ChatColor.RED + "Failed to load the Void config: " + e.getLocalizedMessage()));
             }
         },1L);

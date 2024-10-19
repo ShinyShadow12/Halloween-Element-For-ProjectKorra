@@ -34,7 +34,7 @@ public class Spooky extends JavaPlugin {
         CollisionInitializer collisionInitializer = ProjectKorra.getCollisionInitializer();
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             (new SpookyPlaceholder()).register();
-            plugin.getLogger().info("Successfully enabled Void.");
+            plugin.getLogger().info("Successfully enabled Spooky bending.");
         }
     }
 

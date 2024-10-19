@@ -148,7 +148,7 @@ public class ScareCrow extends SpookyAbility {
 
     @Override
     public long getCooldown() {
-        return 5000;
+        return 8000;
     }
 
     @Override
@@ -190,9 +190,9 @@ public class ScareCrow extends SpookyAbility {
     @Override
     public String getDescription() {
 
-        return  ChatColor.BOLD + " Left click a block to grow an apparently normal pumpkin " +
-                "when an entity gets close enough to it, a scarecrow will be summoned in place of " +
-                "the pumpkin jumpscaring everyone in the radius. "  + ChatColor.GOLD;
+        return  ChatColor.BOLD + " Left click a block to grow an apparently normal pumpkin. " +
+                "When an entity gets close enough to it, a scarecrow will be summoned in place of " +
+                "the pumpkin jumpscaring everyone in the radius."  + ChatColor.GOLD;
     }
 
 }

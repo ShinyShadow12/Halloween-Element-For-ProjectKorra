@@ -27,10 +27,8 @@ public class AbilityListener implements Listener {
 
             if(bPlayer.canBend(CoreAbility.getAbility(ScareCrow.class)) && bPlayer.getBoundAbilityName().equalsIgnoreCase("ScareCrow") && !ScareCrow.test) {
                     scareCrowPos = event.getClickedBlock();
-                    player.sendMessage("hola" + scareCrowPos.getLocation());
                     new ScareCrow(player, scareCrowPos);
-
             }
-               }
-            }
+        }
     }
+}
