@@ -55,7 +55,7 @@ public class ScareCrow extends SpookyAbility {
                     player.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, pumpkinSpawn.getLocation().add(0.5, 0.1,0.5), 1, 0.5, 0, 0.5, 2);
                     pumpkinExists = true;
                 }
-            }.runTaskLater(SpookyElement.SPOOKY.getPlugin(), 30L); // 5 seconds delay
+            }.runTaskLater(SpookyElement.SPOOKY.getPlugin(), 30L);
         }
         if (bPlayer.canBendIgnoreBindsCooldowns(this)) {
             if(pumpkinExists && !jumpscare) {
