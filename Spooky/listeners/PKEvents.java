@@ -94,7 +94,7 @@ public class PKEvents implements Listener {
             } catch (IOException|org.bukkit.configuration.InvalidConfigurationException e) {
                 e.printStackTrace();
                 sender.sendMessage(ChatColor.BLACK +  "Spooky failed config reloaded." + ChatColor.BOLD);
-                plugin.getLogger().info((ChatColor.RED + "Failed to load the Void config: " + e.getLocalizedMessage()));
+                plugin.getLogger().info((ChatColor.RED + "Failed to load the Spooky config: " + e.getLocalizedMessage()));
             }
         },1L);
 
