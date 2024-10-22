@@ -1,1 +1,1 @@
-A halloween themed element for ProjectKorra
+A halloween themed ability for ProjectKorra
