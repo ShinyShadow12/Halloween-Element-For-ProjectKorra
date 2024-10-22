@@ -1,0 +1,14 @@
+name: Spooky
+version: 1.0
+main: me.ShinyShadow_.Spooky.Spooky
+api-version: 1.20
+depend: [ProjectKorra]
+authors: [ShinyShadow_]
+description: Enables your players to bend Spooky abilities.
+
+permissions:
+  bending.Spooky:
+    default: true
+    description: Gives access to all spooky abilities.
+    children:
+      bending.ability.scarecrow : true
