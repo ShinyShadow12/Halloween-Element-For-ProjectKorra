@@ -11,7 +11,6 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
-
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -21,12 +20,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class ScareCrow extends SpookyAbility {
     public Block scareCrowPosition;
-    public Block pumpkinSpawn;
+    public static Block pumpkinSpawn;
     public Boolean pumpkinExists = false;
     public Boolean jumpscare = false;
     public static Boolean test = false;
     public Location playerLoc;
     public double radius = 0.8;
+    public static Boolean earlyRemove = false;
 
     public ScareCrow(Player player, Block scareCrowPos) {
         super(player);
@@ -40,7 +40,7 @@ public class ScareCrow extends SpookyAbility {
     public void progress() {
         playerLoc = player.getLocation();
 
-        if(player.getWorld() != scareCrowPosition.getWorld() || player.isDead() || !player.isOnline()) {
+        if(player.getWorld() != scareCrowPosition.getWorld() || player.isDead() || !player.isOnline() || earlyRemove) {
             stop();
         }
 
@@ -75,10 +75,10 @@ public class ScareCrow extends SpookyAbility {
                         player.getWorld().spawnParticle(Particle.REDSTONE, pumpkinSpawn.getLocation().add(0.5, 2, 0.5),
                                 300, 2, 3, 2, 0, new Particle.DustOptions(org.bukkit.Color.fromRGB(84, 70, 87), 1));
                         jumpscare = true;
-
                         ((LivingEntity) target).addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 40, 0));
                     final MovementHandler mh = new MovementHandler((LivingEntity) target, this);
-                    mh.stopWithDuration(10, "**SCARED**");
+
+                    mh.stopWithDuration(10, "*SCARED*");
                     }
                 }
             }
@@ -194,10 +194,3 @@ public class ScareCrow extends SpookyAbility {
     }
 
 }
-
-
-
-
-
-
-
