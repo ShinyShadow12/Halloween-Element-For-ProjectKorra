@@ -23,12 +23,25 @@ public class AbilityListener implements Listener {
         player = event.getPlayer();
         BendingPlayer bPlayer = BendingPlayer.getBendingPlayer(player);
 
-        if(event.getAction() == Action.LEFT_CLICK_BLOCK) {
+        if(event.getAction() == Action.LEFT_CLICK_BLOCK && !player.isSneaking()) {
 
             if(bPlayer.canBend(CoreAbility.getAbility(ScareCrow.class)) && bPlayer.getBoundAbilityName().equalsIgnoreCase("ScareCrow") && !ScareCrow.test) {
                     scareCrowPos = event.getClickedBlock();
                     new ScareCrow(player, scareCrowPos);
             }
         }
+            //End the ability without it getting triggered so you can replace it
+        else if(event.getAction() == Action.LEFT_CLICK_BLOCK && player.isSneaking()) {
+                ScareCrow.stop()
+        }
     }
+    //Prevent pumpkin from being broken
+    @EventHandler
+    public void onBreak(BlockBreakEvent event) {
+            event.getPlayer()
+                if(event.getBlock().getLocation().equals(ScareCrow.pumpkinspawn.getLocation())) {
+                    event.setCancelled(true)
+            }
+    }
+    
 }
