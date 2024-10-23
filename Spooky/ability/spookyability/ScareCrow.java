@@ -40,7 +40,7 @@ public class ScareCrow extends SpookyAbility {
     public void progress() {
         playerLoc = player.getLocation();
 
-        if(player.getWorld() != scareCrowPosition.getWorld()) {
+        if(player.getWorld() != scareCrowPosition.getWorld() || player.isDead() || !player.isOnline()) {
             stop();
         }
 
@@ -61,6 +61,7 @@ public class ScareCrow extends SpookyAbility {
             if(pumpkinExists && !jumpscare) {
                 for (Entity target : GeneralMethods.getEntitiesAroundPoint(pumpkinSpawn.getLocation(), 3)) {
                     if (target instanceof LivingEntity && !target.getUniqueId().equals(this.player.getUniqueId())) {
+                               DamageHandler.damageEntity(target, 3, this);
                         pumpkinSpawn.getLocation().add(0, 0, 0).getBlock().setType(Material.AIR);
                         pumpkinSpawn.getLocation().add(0, 4, 0).getBlock().setType(Material.CARVED_PUMPKIN);
                         for (int i = 0; i <= 6; i++) {
@@ -77,11 +78,8 @@ public class ScareCrow extends SpookyAbility {
 
                         ((LivingEntity) target).addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 40, 0));
                     final MovementHandler mh = new MovementHandler((LivingEntity) target, this);
-
-                     DamageHandler.damageEntity(target, 4, this);
-                    mh.stopWithDuration(15, "**SCARED**");
+                    mh.stopWithDuration(10, "**SCARED**");
                     }
-
                 }
             }
 
